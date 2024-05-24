@@ -5,14 +5,14 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using ThoughtCabinet.Models;
+using ThoughtCabinet.Data;
 
 #nullable disable
 
 namespace ThoughtCabinet.Migrations
 {
     [DbContext(typeof(ThoughtsContext))]
-    [Migration("20240524200758_InitialCreate")]
+    [Migration("20240524212200_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />

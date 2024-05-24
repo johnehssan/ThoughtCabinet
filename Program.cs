@@ -1,9 +1,20 @@
 using Microsoft.EntityFrameworkCore;
-using ThoughtCabinet.Models;
+using ThoughtCabinet.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAll",
+        builder =>
+        {
+            builder.AllowAnyOrigin()
+                   .AllowAnyMethod()
+                   .AllowAnyHeader();
+        });
+});
+
 builder.Services.AddControllers();
 
 // Add DbContext
@@ -18,7 +29,9 @@ if (app.Environment.IsDevelopment())
     app.UseDeveloperExceptionPage();
 }
 
-app.UseHttpsRedirection();
+app.UseCors("AllowAll");
+
+app.UseRouting();
 
 app.UseAuthorization();
 
