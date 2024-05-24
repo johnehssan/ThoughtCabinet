@@ -1,0 +1,6 @@
+@ThoughtCabinet_HostAddress = http://localhost:5226
+
+GET {{ThoughtCabinet_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
