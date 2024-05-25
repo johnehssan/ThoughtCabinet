@@ -5,7 +5,7 @@ VisualStudioVersion = 17.10.34916.146
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ThoughtCabinet", "ThoughtCabinet.csproj", "{51A628EC-74B4-4824-BB26-7A0764647D76}"
 EndProject
-Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "ThoughtCabinetClient", "..\ThoughtCabinetClient\ThoughtCabinetClient.esproj", "{2ECA0E61-42F7-4145-98D5-89D7D28069A8}"
+Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "ThoughtCabinetClient", "..\ThoughtCabinetClient\ThoughtCabinetClient.esproj", "{5738DE15-6D23-4116-9582-E4F89EB67E4B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,12 +17,12 @@ Global
 		{51A628EC-74B4-4824-BB26-7A0764647D76}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{51A628EC-74B4-4824-BB26-7A0764647D76}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{51A628EC-74B4-4824-BB26-7A0764647D76}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2ECA0E61-42F7-4145-98D5-89D7D28069A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2ECA0E61-42F7-4145-98D5-89D7D28069A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2ECA0E61-42F7-4145-98D5-89D7D28069A8}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
-		{2ECA0E61-42F7-4145-98D5-89D7D28069A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2ECA0E61-42F7-4145-98D5-89D7D28069A8}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2ECA0E61-42F7-4145-98D5-89D7D28069A8}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{5738DE15-6D23-4116-9582-E4F89EB67E4B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5738DE15-6D23-4116-9582-E4F89EB67E4B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5738DE15-6D23-4116-9582-E4F89EB67E4B}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{5738DE15-6D23-4116-9582-E4F89EB67E4B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5738DE15-6D23-4116-9582-E4F89EB67E4B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5738DE15-6D23-4116-9582-E4F89EB67E4B}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
