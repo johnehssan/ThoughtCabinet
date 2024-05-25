@@ -22,7 +22,7 @@ namespace ThoughtCabinet.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("ThoughtCabinet.Models.Thoughts", b =>
+            modelBuilder.Entity("ThoughtCabinet.Models.Thought", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()

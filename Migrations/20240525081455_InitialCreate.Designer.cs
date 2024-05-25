@@ -12,7 +12,7 @@ using ThoughtCabinet.Data;
 namespace ThoughtCabinet.Migrations
 {
     [DbContext(typeof(ThoughtsContext))]
-    [Migration("20240524212200_InitialCreate")]
+    [Migration("20240525081455_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -25,7 +25,7 @@ namespace ThoughtCabinet.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("ThoughtCabinet.Models.Thoughts", b =>
+            modelBuilder.Entity("ThoughtCabinet.Models.Thought", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()

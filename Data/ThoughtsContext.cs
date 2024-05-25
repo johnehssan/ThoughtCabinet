@@ -5,7 +5,7 @@ namespace ThoughtCabinet.Data
 {
     public class ThoughtsContext : DbContext
     {
-        public DbSet<Thoughts> Thoughts { get; set; }
+        public DbSet<Thought> Thoughts { get; set; }
 
         public ThoughtsContext(DbContextOptions<ThoughtsContext> options)
             : base(options)

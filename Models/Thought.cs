@@ -1,6 +1,6 @@
 ﻿namespace ThoughtCabinet.Models
 {
-    public class Thoughts
+    public class Thought
     {
         public int Id { get; set; }
         public required string Title { get; set; }

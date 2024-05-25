@@ -17,54 +17,54 @@ namespace ThoughtCabinet.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Thoughts>>> GetNotes()
+        public async Task<ActionResult<IEnumerable<Thought>>> GetThoughts()
         {
             return await _context.Thoughts.ToListAsync();
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<Thoughts>> GetNoteById(int id)
+        public async Task<ActionResult<Thought>> GetThoughtById(int id)
         {
-            var note = await _context.Thoughts.FindAsync(id);
-            if (note == null)
+            var thought = await _context.Thoughts.FindAsync(id);
+            if (thought == null)
             {
                 return NotFound();
             }
 
-            return note;
+            return thought;
         }
 
         [HttpPost]
-        public async Task<ActionResult<Thoughts>> CreateNote(Thoughts note)
+        public async Task<ActionResult<Thought>> CreateThought(Thought thought)
         {
-            _context.Thoughts.Add(note);
+            _context.Thoughts.Add(thought);
             await _context.SaveChangesAsync();
-            return CreatedAtAction(nameof(GetNoteById), new { id = note.Id }, note);
+            return CreatedAtAction(nameof(GetThoughtById), new { id = thought.Id }, thought);
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateNote(int id, Thoughts note)
+        public async Task<IActionResult> UpdateThought(int id, Thought thought)
         {
-            if (id != note.Id)
+            if (id != thought.Id)
             {
                 return BadRequest();
             }
 
-            _context.Entry(note).State = EntityState.Modified;
+            _context.Entry(thought).State = EntityState.Modified;
             await _context.SaveChangesAsync();
             return NoContent();
         }
 
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteNote(int id)
+        public async Task<IActionResult> DeleteThought(int id)
         {
-            var note = await _context.Thoughts.FindAsync(id);
-            if (note == null)
+            var thought = await _context.Thoughts.FindAsync(id);
+            if (thought == null)
             {
                 return NotFound();
             }
 
-            _context.Thoughts.Remove(note);
+            _context.Thoughts.Remove(thought);
             await _context.SaveChangesAsync();
             return NoContent();
         }
