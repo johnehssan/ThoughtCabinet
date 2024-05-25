@@ -23,7 +23,7 @@ namespace ThoughtCabinet.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<Thought>> GetThought(int id)
+        public async Task<ActionResult<Thought>> GetThoughtById(int id)
         {
             var thought = await _context.Thoughts.FindAsync(id);
 
@@ -36,18 +36,18 @@ namespace ThoughtCabinet.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<Thought>> PostThought(Thought thought)
+        public async Task<ActionResult<Thought>> CreateThought(Thought thought)
         {
             thought.CreatedAt = DateTime.UtcNow;
             thought.UpdatedAt = DateTime.UtcNow;
             _context.Thoughts.Add(thought);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction(nameof(GetThought), new { id = thought.Id }, thought);
+            return CreatedAtAction(nameof(GetThoughtById), new { id = thought.Id }, thought);
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutThought(int id, Thought thought)
+        public async Task<IActionResult> UpdateThought(int id, Thought thought)
         {
             if (id != thought.Id)
             {
