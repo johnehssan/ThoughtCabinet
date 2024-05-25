@@ -12,7 +12,7 @@ using ThoughtCabinet.Data;
 namespace ThoughtCabinet.Migrations
 {
     [DbContext(typeof(ThoughtsContext))]
-    [Migration("20240525081455_InitialCreate")]
+    [Migration("20240525100328_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -34,7 +34,6 @@ namespace ThoughtCabinet.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Content")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("CreatedAt")
@@ -43,6 +42,9 @@ namespace ThoughtCabinet.Migrations
                     b.Property<string>("Title")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("datetime2");
 
                     b.HasKey("Id");
 

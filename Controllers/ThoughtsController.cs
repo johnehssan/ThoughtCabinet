@@ -5,8 +5,8 @@ using ThoughtCabinet.Models;
 
 namespace ThoughtCabinet.Controllers
 {
-    [Route("api/[controller]")]
     [ApiController]
+    [Route("api/[controller]")]
     public class ThoughtsController : ControllerBase
     {
         private readonly ThoughtsContext _context;
@@ -23,9 +23,10 @@ namespace ThoughtCabinet.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<Thought>> GetThoughtById(int id)
+        public async Task<ActionResult<Thought>> GetThought(int id)
         {
             var thought = await _context.Thoughts.FindAsync(id);
+
             if (thought == null)
             {
                 return NotFound();
@@ -35,23 +36,43 @@ namespace ThoughtCabinet.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<Thought>> CreateThought(Thought thought)
+        public async Task<ActionResult<Thought>> PostThought(Thought thought)
         {
+            thought.CreatedAt = DateTime.UtcNow;
+            thought.UpdatedAt = DateTime.UtcNow;
             _context.Thoughts.Add(thought);
             await _context.SaveChangesAsync();
-            return CreatedAtAction(nameof(GetThoughtById), new { id = thought.Id }, thought);
+
+            return CreatedAtAction(nameof(GetThought), new { id = thought.Id }, thought);
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateThought(int id, Thought thought)
+        public async Task<IActionResult> PutThought(int id, Thought thought)
         {
             if (id != thought.Id)
             {
                 return BadRequest();
             }
 
+            thought.UpdatedAt = DateTime.UtcNow;
             _context.Entry(thought).State = EntityState.Modified;
-            await _context.SaveChangesAsync();
+
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!ThoughtExists(id))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+
             return NoContent();
         }
 
@@ -66,7 +87,13 @@ namespace ThoughtCabinet.Controllers
 
             _context.Thoughts.Remove(thought);
             await _context.SaveChangesAsync();
+
             return NoContent();
+        }
+
+        private bool ThoughtExists(int id)
+        {
+            return _context.Thoughts.Any(e => e.Id == id);
         }
     }
 }
